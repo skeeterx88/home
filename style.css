@@ -23,7 +23,7 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     animation: slideUp 0.6s ease-out;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 @keyframes slideUp {
