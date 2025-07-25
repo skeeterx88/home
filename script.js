@@ -230,7 +230,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Funcções utilitárias para manipulação de dados
+// Funções utilitárias para manipulação de dados
 const DashboardUtils = {
     // Exportar dados
     exportData() {
