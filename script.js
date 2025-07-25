@@ -314,7 +314,7 @@ function selectIcon(iconClass, iconName) {
         option.classList.remove('selected');
     });
     
-    const selectedOption = document.querySelector(`.icon-option[onclick*="${iconClass}"]`);
+    const selectedOption = document.querySelector(`.icon-option[data-icon-class="${iconClass}"]`);
     if (selectedOption) {
         selectedOption.classList.add('selected');
     }
