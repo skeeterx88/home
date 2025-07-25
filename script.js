@@ -58,6 +58,113 @@ let dashboardData = {
 // Variável para controlar qual tab está sendo editada
 let currentEditingTab = '';
 
+// Lista de ícones disponíveis para seleção
+const availableIcons = [
+    // Redes Sociais
+    { class: 'fab fa-facebook', name: 'Facebook' },
+    { class: 'fab fa-twitter', name: 'Twitter' },
+    { class: 'fab fa-instagram', name: 'Instagram' },
+    { class: 'fab fa-linkedin', name: 'LinkedIn' },
+    { class: 'fab fa-youtube', name: 'YouTube' },
+    { class: 'fab fa-github', name: 'GitHub' },
+    { class: 'fab fa-gitlab', name: 'GitLab' },
+    { class: 'fab fa-discord', name: 'Discord' },
+    { class: 'fab fa-slack', name: 'Slack' },
+    { class: 'fab fa-whatsapp', name: 'WhatsApp' },
+    { class: 'fab fa-telegram', name: 'Telegram' },
+    { class: 'fab fa-reddit', name: 'Reddit' },
+    { class: 'fab fa-tiktok', name: 'TikTok' },
+    
+    // Trabalho e Produtividade
+    { class: 'fas fa-briefcase', name: 'Trabalho' },
+    { class: 'fas fa-building', name: 'Empresa' },
+    { class: 'fas fa-chart-line', name: 'Análise' },
+    { class: 'fas fa-tasks', name: 'Tarefas' },
+    { class: 'fas fa-calendar', name: 'Calendário' },
+    { class: 'fas fa-clock', name: 'Tempo' },
+    { class: 'fas fa-file-alt', name: 'Documento' },
+    { class: 'fas fa-folder', name: 'Pasta' },
+    { class: 'fas fa-archive', name: 'Arquivo' },
+    { class: 'fab fa-jira', name: 'Jira' },
+    { class: 'fab fa-trello', name: 'Trello' },
+    { class: 'fab fa-confluence', name: 'Confluence' },
+    
+    // Comunicação
+    { class: 'fas fa-envelope', name: 'Email' },
+    { class: 'fas fa-phone', name: 'Telefone' },
+    { class: 'fas fa-comments', name: 'Chat' },
+    { class: 'fas fa-video', name: 'Vídeo' },
+    { class: 'fas fa-microphone', name: 'Microfone' },
+    
+    // Tecnologia
+    { class: 'fas fa-server', name: 'Servidor' },
+    { class: 'fas fa-database', name: 'Banco de Dados' },
+    { class: 'fas fa-code', name: 'Código' },
+    { class: 'fas fa-terminal', name: 'Terminal' },
+    { class: 'fas fa-laptop', name: 'Laptop' },
+    { class: 'fas fa-desktop', name: 'Desktop' },
+    { class: 'fas fa-mobile-alt', name: 'Mobile' },
+    { class: 'fas fa-wifi', name: 'WiFi' },
+    { class: 'fas fa-cloud', name: 'Cloud' },
+    { class: 'fab fa-docker', name: 'Docker' },
+    { class: 'fab fa-aws', name: 'AWS' },
+    { class: 'fab fa-google-cloud', name: 'Google Cloud' },
+    { class: 'fab fa-microsoft', name: 'Microsoft' },
+    
+    // Web e Internet
+    { class: 'fas fa-globe', name: 'Website' },
+    { class: 'fas fa-link', name: 'Link' },
+    { class: 'fas fa-search', name: 'Pesquisa' },
+    { class: 'fas fa-download', name: 'Download' },
+    { class: 'fas fa-upload', name: 'Upload' },
+    { class: 'fas fa-share', name: 'Compartilhar' },
+    { class: 'fas fa-bookmark', name: 'Favorito' },
+    { class: 'fab fa-chrome', name: 'Chrome' },
+    { class: 'fab fa-firefox', name: 'Firefox' },
+    { class: 'fab fa-safari', name: 'Safari' },
+    
+    // Finanças
+    { class: 'fas fa-credit-card', name: 'Cartão' },
+    { class: 'fas fa-money-bill', name: 'Dinheiro' },
+    { class: 'fas fa-chart-pie', name: 'Gráfico' },
+    { class: 'fas fa-coins', name: 'Moedas' },
+    { class: 'fas fa-piggy-bank', name: 'Poupança' },
+    { class: 'fab fa-paypal', name: 'PayPal' },
+    
+    // Entretenimento
+    { class: 'fas fa-music', name: 'Música' },
+    { class: 'fas fa-film', name: 'Filme' },
+    { class: 'fas fa-gamepad', name: 'Games' },
+    { class: 'fas fa-book', name: 'Livro' },
+    { class: 'fas fa-newspaper', name: 'Notícias' },
+    { class: 'fab fa-spotify', name: 'Spotify' },
+    { class: 'fab fa-netflix', name: 'Netflix' },
+    { class: 'fab fa-steam', name: 'Steam' },
+    
+    // Utilidades
+    { class: 'fas fa-home', name: 'Casa' },
+    { class: 'fas fa-user', name: 'Usuário' },
+    { class: 'fas fa-users', name: 'Usuários' },
+    { class: 'fas fa-cog', name: 'Configuração' },
+    { class: 'fas fa-tools', name: 'Ferramentas' },
+    { class: 'fas fa-bell', name: 'Notificação' },
+    { class: 'fas fa-star', name: 'Estrela' },
+    { class: 'fas fa-heart', name: 'Coração' },
+    { class: 'fas fa-thumbs-up', name: 'Like' },
+    { class: 'fas fa-flag', name: 'Bandeira' },
+    { class: 'fas fa-map-marker-alt', name: 'Local' },
+    { class: 'fas fa-shopping-cart', name: 'Carrinho' },
+    { class: 'fas fa-gift', name: 'Presente' },
+    { class: 'fas fa-key', name: 'Chave' },
+    { class: 'fas fa-lock', name: 'Cadeado' },
+    { class: 'fas fa-shield-alt', name: 'Segurança' },
+    { class: 'fas fa-fire', name: 'Fogo' },
+    { class: 'fas fa-lightbulb', name: 'Ideia' },
+    { class: 'fas fa-rocket', name: 'Foguete' }
+];
+
+let selectedIcon = 'fas fa-link';
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', function() {
     loadData();
@@ -125,7 +232,7 @@ function setupModal() {
         
         const title = document.getElementById('linkTitle').value;
         const url = document.getElementById('linkUrl').value;
-        const icon = document.getElementById('linkIcon').value;
+        const icon = selectedIcon;
 
         // Adicionar o link
         dashboardData[currentEditingTab].push({
@@ -138,6 +245,7 @@ function setupModal() {
         renderTab(currentEditingTab);
         closeModal();
         form.reset();
+        resetIconSelection();
     });
 
     // Fechar modal clicando fora dele
@@ -146,6 +254,89 @@ function setupModal() {
             closeModal();
         }
     });
+
+    // Configurar icon picker
+    setupIconPicker();
+}
+
+// Configurar o seletor de ícones
+function setupIconPicker() {
+    const iconGrid = document.getElementById('iconGrid');
+    const iconSearch = document.getElementById('iconSearch');
+    const selectedIconPreview = document.getElementById('selectedIconPreview');
+    
+    // Renderizar todos os ícones inicialmente
+    renderIcons(availableIcons);
+    
+    // Configurar pesquisa de ícones
+    if (iconSearch) {
+        iconSearch.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredIcons = availableIcons.filter(icon => 
+                icon.name.toLowerCase().includes(searchTerm) ||
+                icon.class.toLowerCase().includes(searchTerm)
+            );
+            renderIcons(filteredIcons);
+        });
+    }
+}
+
+// Renderizar ícones no grid
+function renderIcons(icons) {
+    const iconGrid = document.getElementById('iconGrid');
+    if (!iconGrid) return;
+    
+    iconGrid.innerHTML = icons.map(icon => `
+        <div class="icon-option ${icon.class === selectedIcon ? 'selected' : ''}" 
+             onclick="selectIcon('${icon.class}', '${icon.name}')"
+             title="${icon.name}">
+            <i class="${icon.class}"></i>
+            <span class="icon-name">${icon.name}</span>
+        </div>
+    `).join('');
+}
+
+// Selecionar um ícone
+function selectIcon(iconClass, iconName) {
+    selectedIcon = iconClass;
+    
+    // Atualizar preview do ícone selecionado
+    const selectedIconPreview = document.getElementById('selectedIconPreview');
+    if (selectedIconPreview) {
+        selectedIconPreview.innerHTML = `
+            <i class="${iconClass}"></i>
+            <span>${iconName}</span>
+        `;
+    }
+    
+    // Atualizar seleção visual no grid
+    document.querySelectorAll('.icon-option').forEach(option => {
+        option.classList.remove('selected');
+    });
+    
+    const selectedOption = document.querySelector(`.icon-option[onclick*="${iconClass}"]`);
+    if (selectedOption) {
+        selectedOption.classList.add('selected');
+    }
+}
+
+// Resetar seleção de ícone
+function resetIconSelection() {
+    selectedIcon = 'fas fa-link';
+    const selectedIconPreview = document.getElementById('selectedIconPreview');
+    if (selectedIconPreview) {
+        selectedIconPreview.innerHTML = `
+            <i class="fas fa-link"></i>
+            <span>Link</span>
+        `;
+    }
+    
+    // Limpar pesquisa
+    const iconSearch = document.getElementById('iconSearch');
+    if (iconSearch) {
+        iconSearch.value = '';
+        renderIcons(availableIcons);
+    }
 }
 
 // Renderizar todos os tabs
@@ -220,6 +411,7 @@ function validateIcon(iconClass) {
 // Adicionar novo link
 function addLink(tabName) {
     currentEditingTab = tabName;
+    resetIconSelection();
     document.getElementById('addLinkModal').style.display = 'block';
     document.getElementById('linkTitle').focus();
 }
