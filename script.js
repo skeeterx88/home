@@ -246,6 +246,17 @@ function setupModal() {
         closeModal();
         form.reset();
         resetIconSelection();
+
+        function resetIconSelection() {
+            // Find all icons in the icon grid
+            const iconGrid = document.getElementById('iconGrid');
+            if (iconGrid) {
+                const selectedIcons = iconGrid.querySelectorAll('.selected');
+                selectedIcons.forEach(icon => {
+                    icon.classList.remove('selected'); // Remove the 'selected' class
+                });
+            }
+        }
     });
 
     // Fechar modal clicando fora dele
