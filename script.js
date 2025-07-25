@@ -189,6 +189,21 @@ function getDomainFromUrl(url) {
     }
 }
 
+// Validar ícone Font Awesome
+function validateIcon(iconClass) {
+    // Se não fornecido ou vazio, usar ícone padrão
+    if (!iconClass || iconClass.trim() === '') {
+        return 'fas fa-link';
+    }
+    
+    // Se não começa com fa-, fas-, far-, fab-, adicionar fas
+    if (!iconClass.match(/^(fa|fas|far|fab|fal|fat|fad|fass|fasr|fasl|fast)-/)) {
+        return `fas fa-${iconClass}`;
+    }
+    
+    return iconClass.trim();
+}
+
 // Adicionar novo link
 function addLink(tabName) {
     currentEditingTab = tabName;
