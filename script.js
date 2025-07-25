@@ -287,11 +287,11 @@ function renderIcons(icons) {
     if (!iconGrid) return;
     
     iconGrid.innerHTML = icons.map(icon => `
-        <div class="icon-option ${icon.class === selectedIcon ? 'selected' : ''}" 
-             onclick="selectIcon('${icon.class}', '${icon.name}')"
-             title="${icon.name}">
-            <i class="${icon.class}"></i>
-            <span class="icon-name">${icon.name}</span>
+        <div class="icon-option ${escapeHTML(icon.class) === selectedIcon ? 'selected' : ''}" 
+             onclick="selectIcon('${escapeHTML(icon.class)}', '${escapeHTML(icon.name)}')"
+             title="${escapeHTML(icon.name)}">
+            <i class="${escapeHTML(icon.class)}"></i>
+            <span class="icon-name">${escapeHTML(icon.name)}</span>
         </div>
     `).join('');
 }
