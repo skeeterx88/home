@@ -196,7 +196,7 @@ header i {
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 4px 14px var(--box-shadow-color);
     position: relative;
     overflow: hidden;
 }
