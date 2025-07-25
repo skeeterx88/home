@@ -549,7 +549,6 @@ header i {
     
     .container {
         border-radius: 0;
-        min-height: 100vh;
     }
     
     .breadcrumb-nav {
