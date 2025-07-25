@@ -108,8 +108,19 @@
                     <input type="url" id="linkUrl" required>
                 </div>
                 <div class="form-group">
-                    <label for="linkIcon">Ícone (Font Awesome class):</label>
-                    <input type="text" id="linkIcon" placeholder="fas fa-globe" value="fas fa-link">
+                    <label>Ícone:</label>
+                    <div class="icon-picker">
+                        <div class="selected-icon-preview">
+                            <div id="selectedIconPreview">
+                                <i class="fas fa-link"></i>
+                                <span>Link</span>
+                            </div>
+                        </div>
+                        <input type="text" id="iconSearch" placeholder="Pesquisar ícones..." class="icon-search">
+                        <div class="icon-grid" id="iconGrid">
+                            <!-- Ícones serão inseridos aqui via JavaScript -->
+                        </div>
+                    </div>
                 </div>
                 <div class="form-buttons">
                     <button type="submit">Adicionar</button>
