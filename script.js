@@ -85,6 +85,14 @@ function saveData() {
 function setupTabSwitching() {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabPanes = document.querySelectorAll('.tab-pane');
+    const currentSection = document.getElementById('current-section');
+
+    const tabNames = {
+        'pessoal': 'Links Pessoais',
+        'tqi': 'TQI',
+        'pagseguro': 'PagSeguro', 
+        'redhat': 'Red Hat'
+    };
 
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -98,6 +106,11 @@ function setupTabSwitching() {
             // Mostra o pane correspondente
             const targetTab = button.dataset.tab;
             document.getElementById(targetTab).classList.add('active');
+            
+            // Atualiza breadcrumb
+            if (currentSection) {
+                currentSection.textContent = tabNames[targetTab] || targetTab;
+            }
         });
     });
 }
