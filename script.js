@@ -161,7 +161,7 @@ function renderTab(tabName) {
     container.innerHTML = links.map((link, index) => `
         <div class="link-card" onclick="openLink('${link.url}')">
             <button class="delete-button" onclick="event.stopPropagation(); deleteLink('${tabName}', ${index})">&times;</button>
-            <i class="${link.icon}"></i>
+            <i class="${validateIcon(link.icon)}"></i>
             <h3>${link.title}</h3>
             <div class="url">${getDomainFromUrl(link.url)}</div>
         </div>
