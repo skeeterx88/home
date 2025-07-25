@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pessoal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-home"></i> Dashboard Pessoal</h1>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="pessoal">
+                <i class="fas fa-user"></i> Pessoal
+            </button>
+            <button class="tab-button" data-tab="tqi">
+                <i class="fas fa-briefcase"></i> TQI
+            </button>
+            <button class="tab-button" data-tab="pagseguro">
+                <i class="fas fa-credit-card"></i> PagSeguro
+            </button>
+            <button class="tab-button" data-tab="redhat">
+                <i class="fas fa-server"></i> RedHat
+            </button>
+        </nav>
+
+        <main class="tab-content">
+            <div class="tab-pane active" id="pessoal">
+                <div class="tab-header">
+                    <h2>Links Pessoais</h2>
+                    <button class="add-button" onclick="addLink('pessoal')">
+                        <i class="fas fa-plus"></i> Adicionar Link
+                    </button>
+                </div>
+                <div class="links-grid" id="pessoal-links">
+                    <!-- Links serão adicionados aqui via JavaScript -->
+                </div>
+            </div>
+
+            <div class="tab-pane" id="tqi">
+                <div class="tab-header">
+                    <h2>TQI</h2>
+                    <button class="add-button" onclick="addLink('tqi')">
+                        <i class="fas fa-plus"></i> Adicionar Link
+                    </button>
+                </div>
+                <div class="links-grid" id="tqi-links">
+                    <!-- Links serão adicionados aqui via JavaScript -->
+                </div>
+            </div>
+
+            <div class="tab-pane" id="pagseguro">
+                <div class="tab-header">
+                    <h2>PagSeguro</h2>
+                    <button class="add-button" onclick="addLink('pagseguro')">
+                        <i class="fas fa-plus"></i> Adicionar Link
+                    </button>
+                </div>
+                <div class="links-grid" id="pagseguro-links">
+                    <!-- Links serão adicionados aqui via JavaScript -->
+                </div>
+            </div>
+
+            <div class="tab-pane" id="redhat">
+                <div class="tab-header">
+                    <h2>RedHat</h2>
+                    <button class="add-button" onclick="addLink('redhat')">
+                        <i class="fas fa-plus"></i> Adicionar Link
+                    </button>
+                </div>
+                <div class="links-grid" id="redhat-links">
+                    <!-- Links serão adicionados aqui via JavaScript -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para adicionar links -->
+    <div id="addLinkModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Adicionar Novo Link</h3>
+            <form id="addLinkForm">
+                <div class="form-group">
+                    <label for="linkTitle">Título:</label>
+                    <input type="text" id="linkTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="linkUrl">URL:</label>
+                    <input type="url" id="linkUrl" required>
+                </div>
+                <div class="form-group">
+                    <label for="linkIcon">Ícone (Font Awesome class):</label>
+                    <input type="text" id="linkIcon" placeholder="fas fa-globe" value="fas fa-link">
+                </div>
+                <div class="form-buttons">
+                    <button type="submit">Adicionar</button>
+                    <button type="button" onclick="closeModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
