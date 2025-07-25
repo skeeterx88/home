@@ -91,7 +91,7 @@ function setupTabSwitching() {
         'pessoal': 'Links Pessoais',
         'tqi': 'TQI',
         'pagseguro': 'PagSeguro', 
-        'redhat': 'RedHat'
+        'redhat': 'Red Hat'
     };
 
     tabButtons.forEach(button => {
